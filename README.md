@@ -57,8 +57,8 @@ Los gráficos y tablas se encuentran en la carpeta outputs.
 
 ### 🔎 Metodologia aplicada
 
-Dado que el dataset no disponia de costos reales  de la campaña, se utilizo un modelo de asignación de costos por canal
-
+Dado que el dataset no disponia de costos reales de la campaña, utilicé un modelo de asignación de costos por canal
+.
 * Para cada campaña, el costo total se calcula como:
 
 $$

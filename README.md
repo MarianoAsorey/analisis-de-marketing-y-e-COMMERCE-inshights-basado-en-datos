@@ -23,7 +23,7 @@
 - `products.csv`  
 - `transactions.csv`
 
-> Todos en codificación UTF-8. Para mayor detalle de los datasets utilizados, dirigase a la carpeta Data.
+> Todos en codificación UTF-8. Para mayor detalle de los datasets utilizados, dirigase a la carpeta inputs.
 
 ### Dependencias en R
 
@@ -35,9 +35,7 @@
 - `knitr` 
 - `kableExtra` 
 - `ggcorrplot` 
-- `maps` 
-- `treemapify` 
-- `readr`
+
 >La instalacion se encuentra en la carpeta scripts
 
 ## 🔎 Principales resultados

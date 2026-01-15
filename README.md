@@ -38,6 +38,7 @@
 - `maps` 
 - `treemapify` 
 - `readr`
+>La instalacion se encuentra en la carpeta scripts
 
 ### 🔎 Principales resultados
 
@@ -90,6 +91,7 @@ $$\text{Costo Producto}_{p,c} = \text{Costo Campaña}_c \times \frac{\text{Ingre
 | **CPA** | **Costo por Adquisición:** Determina el costo promedio para convertir a un nuevo comprador único. | $$CPA = \frac{Costo}{Cant.\ Compradores}$$ |
 
 ## Conclusiones y recomendaciones
+En base a lo analizado a lo largo del proyecto, recomiendo:
 
 * Priorizar canales rentables: reasignar presupuesto de Paid Search y Social (con ROIs negativos de -33% y -22%) hacia el canal de Email, el cual es el motor de rentabilidad
 * Auditar los 323 "productos prescindibles" que operan con un ROI de -20,2%, para enfocar esfuerzos en los 571 "productos estrella" que sostienen el 54,9% del negocio

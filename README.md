@@ -1,6 +1,6 @@
 # Análisis de Marketing & E-Commerce
 
-  Este proyecto consiste en un análisis integral de datos reales de un e-commerce con el objetivo de optimizar la toma de decisiones estratégicas.  Se evaluó la **rentabilidad de las campañas de marketing**, el **comportamiento del catálogo de productos mediante segmentación avanzada** (Clustering) y la **calidad de la base de clientes a nivel global.**
+  Este proyecto consiste en un análisis integral de datos de un e-commerce con el objetivo de optimizar la toma de decisiones estratégicas.  Se evaluó la **rentabilidad de las campañas de marketing**, el **comportamiento del catálogo de productos mediante segmentación avanzada** (Clustering) y la **calidad de la base de clientes a nivel global.**
 
 ## 🔴 Flujo de trabajo
 

@@ -1,21 +1,21 @@
-# Análisis de Marketing & E-Commerce Insights
+# Análisis de Marketing & E-Commerce
 
   Este proyecto consiste en un análisis integral de datos reales de un e-commerce con el objetivo de optimizar la toma de decisiones estratégicas.  Se evaluó la **rentabilidad de las campañas de marketing**, el **comportamiento del catálogo de productos mediante segmentación avanzada** (Clustering) y la **calidad de la base de clientes a nivel global.**
 
-### ▬ Flujo de trabajo
+## 🔴 Flujo de trabajo
 
 * **Normalización de los datos:** Uso de **clean_names()** para estandarizar encabezados.
 * **Parseo Temporal:** Conversión de timestamps y fechas para análisis
 * **Tratamiento de Anomalías:** Filtrado de transacciones con ingresos negativos o nulos
 
-### ▬ Objetivos del proyecto
+## 🟢 Objetivos del proyecto
 
 * Analizar la interacción de los usuarios con el sitio a lo largo del funnel de compra.
 * Medir y comparar la performance de las campañas de marketing en términos de revenue y eficiencia.
 * Identificar qué clientes aportan mayor valor al negocio.
 * Evaluar qué productos impulsan los ingresos y la rentabilidad.
 
-### ▬ Datos de entrada
+## 🔵 Datos de entrada
 
 - `campaigns.csv`  
 - `customers.csv`  
@@ -25,7 +25,7 @@
 
 > Todos en codificación UTF-8. Para mayor detalle de los datasets utilizados, dirigase a la carpeta Data.
 
-## Dependencias en R
+### Dependencias en R
 
 - `tidyverse`  
 - `janitor`  
@@ -40,7 +40,7 @@
 - `readr`
 >La instalacion se encuentra en la carpeta scripts
 
-### 🔎 Principales resultados
+## 🔎 Principales resultados
 
 * El canal de Email es el mas eficiente, logrando un ROI del 90%
 * Los rubros de Electrónica y Hogar son los pilares comerciales, concentrando mas del 65% de la facturación
@@ -48,56 +48,54 @@
 * Se detectaron productos específicos (P882 y P1063) cuyas tasas de devolución del 15% duplican el promedio de su categoría
 * La Campaña 14 (Email - Retention) alcanzó un ROI récord de 338%
 * EE.UU. e India representan el 55% de la base de clientes.
-
+  
 ### 📄Informe completo 
 Podras ver el **PDF del informe**, en donde se explica con mas detalle estos resultados, como tambien las visualizaciones realizadas en R.
 
  [Ver informe en PDF](docs/Análisis%20sectorial%20y%20territorial%20del%20empleo%20productivo%20en%20Argentina%20(2021%20-%202022).pdf)
+ 
+ > Los gráficos y tablas se encuentran en la carpeta outputs.
+----------
+## Distribucion del codigo
 
-> Los gráficos y tablas se encuentran en la carpeta outputs.
+El codigo esta dividido en tres scripts para facilitar su comprension: 
+* `instalacion.py` para la instalación de las librerias requeridas, 
+* `limpieza.py` correspondiente al codigo para homogeneizar valores temporales y filtrar ingresos negativos 
+* `EDA.py` con el proceso de exploración de las tablas junto a la visualizaciones creadas
 
-### 🔎 Metodologia aplicada
+> El analisis exploratorio se divide en tres niveles: por campañas, por productos y por clientes. Dichos analisis estan diferenciados en el propio codigo con las letras A, B, C respectivamente para facilitar la lectura de los mismos.
 
-  Ante la ausencia de costos reales en el dataset original, se implementó un modelo de estimación y atribución para determinar la rentabilidad de cada acción[cite: 105, 161].
+##  Metodologia aplicada
+
+  Ante la ausencia de costos reales en el dataset original, se construyó un **proxy de gasto por campaña** en base a costos diarios por canal:
 
 ### 💵 Modelo de costeo
 
-| Concepto | Definición |
+| |  |
 | :--- | :--- |
 | **Costo por Campaña** | Estimado mediante un costo diario fijo según el canal de marketing |
 | **Costos Diarios** | Email ($80), Display ($120), Social ($180), Affiliate ($120), Paid Search ($250). |
 | **Ventana de Atribución** | Se capturan transacciones hasta **14 días después** del fin de la campaña. |
 
-#### **Fórmulas de Cálculo**
 
-**1. Costo Total de Campaña ($c$):**
-$$Costo\ Campaña_c = Duración_c \times Costo\ Diario_{canal(c)}$$
+### 📋 Calculos
 
-**2. Duración de Campaña:**
-$$Duración_c = (Fecha\ Fin_c - Fecha\ Inicio_c) + 1$$
+| | |
+| :--- | :--- |
+| **Duración de Campaña** | $Duración_{c} = (Fecha Fin_{c} - Fecha Inicio_{c}) + 1$ |
+| **Costo Total de Campaña** | $Costo Campaña_{c} = Duración_{c} \times Costo Diario_{canal(c)}$ |
+| **Atribución por Producto** | $Costo Producto_{p,c} = Costo Campaña_{c} \times \frac{Ingresos_{p,c}}{\sum_{p \in c} Ingresos_{p,c}}$ |
 
-**3. Asignación de Costos a Nivel Producto ($p$):**
-  Para evaluar la rentabilidad individual, el costo de la campaña se distribuye proporcionalmente según la contribución de ingresos de cada producto:
-$$\text{Costo Producto}_{p,c} = \text{Costo Campaña}_c \times \frac{\text{Ingresos}_{p,c}}{\sum \text{Ingresos}_{campaña}}$$
-
-
-## 📊 Indicadores Clave (KPIs)
+### 📊 Indicadores Clave (KPIs)
 
   Se definieron los siguientes indicadores para medir el desempeño y la eficiencia financiera del ecosistema:
 
-| KPI | Descripción | Fórmula |
+| |  |  |
 | :--- | :--- | :--- |
 | **ROI** | **Retorno sobre la Inversión:** Mide la rentabilidad neta por cada dólar invertido. | $$ROI = \frac{Ingresos - Costo}{Costo}$$ |
 | **CPA** | **Costo por Adquisición:** Determina el costo promedio para convertir a un nuevo comprador único. | $$CPA = \frac{Costo}{Cant.\ Compradores}$$ |
 
-## Conclusiones y recomendaciones
-En base a lo analizado a lo largo del proyecto, recomiendo:
-
-* Priorizar canales rentables: reasignar presupuesto de Paid Search y Social (con ROIs negativos de -33% y -22%) hacia el canal de Email, el cual es el motor de rentabilidad
-* Auditar los 323 "productos prescindibles" que operan con un ROI de -20,2%, para enfocar esfuerzos en los 571 "productos estrella" que sostienen el 54,9% del negocio
-* Ante la caída anual del 1,5% en la facturación desde 2021, es importante implementar campañas de retargeting para capturar el 39,6% de usuarios que abandonan el carrito.
-* Llevar a cabo un proceso de control operativo de los productos que tienen tasas de devolución muy altas (aprox 15%) en comparación con los de su categoría
-----------
+----------------
 Autor: Mariano Asorey
 
 

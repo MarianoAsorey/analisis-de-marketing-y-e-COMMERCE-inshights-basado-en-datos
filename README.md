@@ -50,7 +50,7 @@
 ### 📄Informe completo 
 Podras ver el **PDF del informe**, en donde se explica con mas detalle estos resultados, como tambien las visualizaciones realizadas en R.
 
- [Ver informe en PDF](docs/Análisis%20sectorial%20y%20territorial%20del%20empleo%20productivo%20en%20Argentina%20(2021%20-%202022).pdf)
+[Ver informe en PDF](informe_final.pdf)
  
  > Los gráficos y tablas se encuentran en la carpeta outputs.
 ----------
